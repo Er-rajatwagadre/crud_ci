@@ -64,7 +64,17 @@ class Common_model extends CI_Model {
         $query = $query->result_array();  
         return $query;
     } 
-
+    
+    //-- select by employee id
+    function fetch($emp_id,$table){
+        $this->db->select();
+        $this->db->from($table);
+        $this->db->where('emp_id', $emp_id);
+        $query = $this->db->get();
+        $query = $query->result_array();  
+        return $query;
+    } 
+    
     //-- check user role designation
     function check_designation($type){
         $this->db->select('ur.*');
